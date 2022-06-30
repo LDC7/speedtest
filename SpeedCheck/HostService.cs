@@ -66,7 +66,7 @@ namespace SpeedTest
       var check = await this.speedCheckService.Check();
       if (check != null)
       {
-        Console.WriteLine($"[{DateTime.Now.ToString("dd.MM.yy")}] Download: {check.DownloadMbits} Upload: {check.UploadMbits}");
+        Console.WriteLine($"[{DateTime.Now.ToString("dd.MM.yy hh:mm")}] Download: {check.DownloadMbits} Upload: {check.UploadMbits}");
         await this.storage.Write(check);
       }
     }
