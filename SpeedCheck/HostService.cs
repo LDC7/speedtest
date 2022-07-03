@@ -37,7 +37,7 @@ namespace SpeedTest
       var currentHour = currentDate.AddHours(DateTime.Now.Hour);
 
       var previousForegroundColor = Console.ForegroundColor;
-      foreach (var dayData in await this.storage.GetLastTenDays())
+      foreach (var dayData in (await this.storage.GetLastTenDays()).OrderBy(p => p.Key))
       {
         var maxDownload = dayData.Value.Max(v => v.DownloadMbits);
         var maxUpload = dayData.Value.Max(v => v.UploadMbits);
